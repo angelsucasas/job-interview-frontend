@@ -1,0 +1,78 @@
+<nav style="margin:2em; border-radius: 5px; box-shadow:5px 3px 5px grey; background-color: #E6B01E; z-index: 3;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <div style="margin: .25em;">
+                    <a routerLink="" routerLinkActive="active">
+                        <img src="assets/logo.PNG" style="border-radius: 50%;width: 11vw;">
+                    </a>                    
+                </div>
+            </div>
+            <div class="col-md-1" style="margin-top: 3em;">
+                <p [matMenuTriggerFor]="menuEmployee" style="font-size: 1.2vw;">Empleados</p>
+                <mat-menu #menuEmployee="matMenu">
+                    <a routerLink="employee/create" routerLinkActive="active" style="color: black;">
+                        <button mat-menu-item>
+                        <span>Crear empleado</span>
+                        </button>
+                    </a>
+                    <a routerLink="employee/" routerLinkActive="active" style="color: black;">
+                        <button mat-menu-item>
+                        <span>Ver todos los empleados</span>
+                        </button>
+                    </a>
+                    <a routerLink="employee/delete" routerLinkActive="active" style="color: black;">
+                        <button mat-menu-item>
+                        <span>eliminar empleado</span>
+                        </button>
+                    </a>
+                </mat-menu>                
+            </div>
+            <div align="center" class="col-md-1" style="margin-top: 3em;">                
+                <p [matMenuTriggerFor]="account" style="font-size: 1.2vw;">Cuentas</p>
+                <mat-menu #account="matMenu">
+                    <a routerLink="account/create" routerLinkActive="active" style="color: black;">
+                        <button mat-menu-item>
+                        <span>Crear cuenta</span>
+                        </button>
+                    </a>
+                    <a routerLink="account/" routerLinkActive="active" style="color: black;">
+                        <button mat-menu-item>
+                        <span>Ver todos las cuentas</span>
+                        </button>
+                    </a>
+                    <a routerLink="account/delete" routerLinkActive="active" style="color: black;">
+                        <button mat-menu-item>
+                        <span>eliminar cuenta</span>
+                        </button>
+                    </a>
+                </mat-menu> 
+            </div>
+            <div align="center" class="col-md-1" style="margin-top: 3em;">                
+                <p [matMenuTriggerFor]="transaction" style="font-size: 1.2vw;">Transacciones</p>
+                <mat-menu #transaction="matMenu">
+                    <a routerLink="transaction/create" routerLinkActive="active" style="color: black;">
+                        <button mat-menu-item>
+                        <span>Crear transaccion</span>
+                        </button>
+                    </a>
+                    <a routerLink="transaction/" routerLinkActive="active" style="color: black;">
+                        <button mat-menu-item>
+                        <span>Ver todas las Transacciones</span>
+                        </button>
+                    </a>
+                    <a routerLink="transaction/delete" routerLinkActive="active" style="color: black;">
+                        <button mat-menu-item>
+                        <span>eliminar Transaccion</span>
+                        </button>
+                    </a>
+                </mat-menu> 
+            </div>
+            <div align="center" class="col-md-2" style="margin-top: 3em;">
+                <a routerLink="report" routerLinkActive="active" style="color: black;">
+                    <p style="font-size: 1.2vw;">Reporte de gastos</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,108 @@
+<div class="container-fluid" style="margin: 0;">
+    <div class="row" style="padding-top: 1em;">
+        <div class="col-md-6">
+            <h2 style="font-weight:bold">REPORTE DE GASTOS</h2>
+        </div>
+    </div>
+    <div class="row" style="padding-top:2em;">
+        <div class="col-md-6">
+            <p style="font-size: 1.2em; font-weight: lighter;">CONCEPTO: Transferencias realizadas por el empleado</p>            
+        </div>
+        <div class="col-md-6">
+            <div class="container-fluid">
+                <div class="row" style="font-size: 1.2em;">
+                    <div class="col-md-6">                       
+                        DESDE:
+                        <input style="width: 50%;" matInput [matDatepicker]="picker1">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                    </div>
+                    <div class="col-md-6">                        
+                        HASTA:
+                        <input style="width: 50%;" matInput [matDatepicker]="picker">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <p style="font-size: 1.2em; font-weight: bold;">INFORMACIÓN DEL EMPLEADO:</p>
+        </div>
+        <div class="col-md-6">
+            <form [formGroup]="invoiceDataForm" (ngSubmit)="onSubmit()">
+                <select  formControlName="targetAccount">
+                    <option value="0">Indique la cuenta de origen</option>
+                    <option  *ngFor="let data of employeesAccounts" value="{{data.accountid}}">
+                        <p>[cuenta id: {{data.accountid}}] [ dueño: {{data.firstname}} {{data.firstlastname}} -account: {{data.productnumber}}]</p>
+                    </option>
+                </select>
+                <button 
+                    type="submit"
+                    style="
+                        border-radius: 15px;
+                        margin: 1em;"
+                >
+                    enviar
+                </button>
+            </form>  
+        </div>
+    </div>
+    <div *ngIf="AccountNotSelected">
+        <div class="row" style="font-size: 1.2em;">
+            <div class="col-md-6">
+                <p style="font-weight: lighter;">Nombre: {{employeeName}}</p>
+            </div>
+            <div class="col-md-6">
+                <p style="font-weight: lighter;">Posición: {{employeePosition}}</p>
+            </div>
+        </div>
+        <div class="row" style="font-size: 1.2em;">
+            <div class="col-md-6">
+                <p style="font-weight: lighter;">Departamento: {{employeeDeparment}}</p>            
+            </div>
+            <div class="col-md-6">
+                <p style="font-weight: lighter;">Supervisor: {{employeeSupervisor}}</p>            
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div style="height: 30vh;overflow-y: scroll;">
+                    <table style="width:100%;border: 1px solid rgb(230, 176, 30);border-radius: 5px;">
+                        <tr style="background-color: rgb(230, 176, 30);color:white;">
+                        <th>Fecha</th>
+                        <th>Cuenta</th>
+                        <th>Descripcion</th>
+                        <th>total</th>
+                        </tr>
+                        <tr *ngFor="let employeeTransaction of currentEmployeeTransactions" style="border-bottom: 1px solid rgb(230, 176, 30);">
+                            <td>{{employeeTransaction.created_at}}</td>
+                            <td>{{employeeTransaction.product_number}}</td>
+                            <td>{{employeeTransaction.description}}</td>
+                            <td>{{employeeTransaction.amount}} $</td>
+                        </tr>
+                        <tr style="background-color:rgb(230, 176, 30);">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>monto a cancelar: {{totalAmount}}</td>
+                        </tr>                    
+                    </table>
+                </div>        
+            </div>
+        </div>
+        <div class="row" style="font-size: 1.2em;">
+            <div class="col-md-6">
+                <p style="font-weight: lighter;">Aprobado Por: {{employeeSupervisor}}</p>
+            </div>        
+        </div>
+        <div class="row" style="font-size: 1.2em;">
+            <div class="col-md-6">
+                <p style="font-weight: lighter;">Firma: {{employeeSupervisor}}</p>
+            </div>
+        </div>
+    </div>
+</div>

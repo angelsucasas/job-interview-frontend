@@ -1,0 +1,18 @@
+
+
+.background-element{
+    border-radius: 50%; 
+    background-color: #F6D16B; 
+    position: fixed;
+    z-index: -1;
+}
+
+.small-circle{
+    width: 8vw; 
+    height: 12vh;
+}
+
+.big-circle{
+    width: 255px; 
+    height: 309px;
+}

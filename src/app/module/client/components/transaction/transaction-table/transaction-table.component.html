@@ -1,0 +1,17 @@
+<div align="center" class="row" *ngIf="transactions" style="overflow-y: scroll; height: 60vh;letter-spacing:3px;">    
+    <table style="width:100%;height:100%;border: 1px solid rgb(230, 176, 30);border-radius: 5px;">
+        <tr style="background-color: rgb(230, 176, 30);color:white;font-weight: lighter;">
+            <th>ID</th>
+            <th>número del producto</th>
+            <th>monto de la transacción</th>
+            <th>descripcion de la transacción</th>          
+        </tr>
+
+        <tr *ngFor="let transaction of transactions" style="border-bottom: 1px solid rgb(230, 176, 30);">
+            <td>{{transaction.id}}</td>
+            <td>{{transaction.product_number}}</td>
+            <td>{{transaction.amount}}</td>            
+            <td>{{transaction.description}}</td>
+        </tr>
+    </table>    
+</div>

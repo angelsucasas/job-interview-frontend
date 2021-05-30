@@ -1,0 +1,54 @@
+<form [formGroup]="accountDataForm" (ngSubmit)="onSubmit()">
+    <div align="center" class="container-fluid" style="padding-top: 2em;">
+        <h1>Registro de la cuenta</h1>
+        <div  class="row">            
+            <div class="col-md-6">
+                <label for="name" class="">
+                    <h1>Número de cuenta</h1>
+                </label>
+                <input 
+                    placeholder="Introduzca el Número de cuenta" 
+                    style="border-radius: 15px; margin-left: 1em;" 
+                    type="text"
+                    formControlName="productNumber"
+                >
+            </div>
+            <div class="col-md-6">
+                <label for="name" class="">
+                    <h1>Monto inicial en cuenta</h1>
+                </label>
+                <input 
+                    placeholder="Introduzca el monto actual de la cuenta" 
+                    style="border-radius: 15px; margin-left: 1em;" 
+                    type="text"
+                    formControlName="currentAmount"
+                >
+            </div>
+        </div>
+        <div  *ngIf="employees" class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <span>
+                    Dueño de la cuenta
+                </span>
+                <select  formControlName="employeId">
+                    <option value="">Indique el empleado que es dueño de la cuenta</option>
+                    <option  *ngFor="let employee of employees" value="{{employee.id}}">
+                        <p>[id: {{employee.id}} ] -{{employee.firstName}} {{employee.firstLastname}}</p>
+                    </option>
+                </select>                
+            </div>            
+        </div>
+        <div align="center" >
+            <button 
+                type="submit"
+                style="
+                    border-radius: 15px;
+                    margin: 1em;"
+            >
+                enviar
+            </button>
+        </div>
+        <h2 *ngIf="showMessageFlag==1">Cuenta creada exitosamente</h2>
+    </div>    
+</form>

@@ -1,0 +1,64 @@
+<form [formGroup]="TransactionDataForm" (ngSubmit)="onSubmit()">
+    <div align="center" class="container-fluid" style="padding-top: 2em;">
+        <h1>Registro de transacciones</h1>
+        <div  class="row">            
+            <div class="col-md-6">
+                <label for="name" class="">
+                    <h1>Descripcion de la transaccion</h1>
+                </label>
+                <input 
+                    placeholder="Introduzca el Número de cuenta" 
+                    style="border-radius: 15px; margin-left: 1em;" 
+                    type="text"
+                    formControlName="description"
+                >
+            </div>
+            <div class="col-md-6">
+                <label for="name" class="">
+                    <h1>Monto de la transacción</h1>
+                </label>
+                <input 
+                    placeholder="Introduzca el monto actual de la cuenta" 
+                    style="border-radius: 15px; margin-left: 1em;" 
+                    type="number"
+                    formControlName="amount"
+                >
+            </div>
+        </div>
+        <div  *ngIf="accounts" class="row">            
+            <div align="left" class="col-md-6">
+                <span>
+                    <h1>Cuenta origen de la transferencia</h1>                   
+                </span>
+                <select  formControlName="originAccountId">
+                    <option value="">Indique la cuenta de origen</option>
+                    <option  *ngFor="let account of accounts" value="{{account.accountid}}">
+                        <p>[cuenta id: {{account.accountid}}] [ dueño: {{account.firstname}} {{account.firstlastname}} -account: {{account.productnumber}}]</p>
+                    </option>
+                </select>                
+            </div>
+            <div align="left" class="col-md-6">
+                <span>
+                    <h1>Cuenta destino de la transferencia</h1>                    
+                </span>
+                <select  formControlName="destinyAccountId">
+                    <option value="">Indique la cuenta de origen</option>
+                    <option  *ngFor="let account of accounts" value="{{account.accountid}}">
+                        <p>[cuenta id: {{account.accountid}}] [ dueño: {{account.firstname}} {{account.firstlastname}} -account: {{account.productnumber}}]</p>
+                    </option>
+                </select>                
+            </div>            
+        </div>
+        <div align="center" >
+            <button 
+                type="submit"
+                style="
+                    border-radius: 15px;
+                    margin: 1em;"
+            >
+                enviar
+            </button>
+        </div>
+        <h2 *ngIf="showMessageFlag==1">Transacción registrada exitosamente</h2>
+    </div>    
+</form>

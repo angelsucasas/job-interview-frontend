@@ -1,0 +1,91 @@
+<form [formGroup]="employeeDataForm" (ngSubmit)="onSubmit()">
+    <div align="center" class="container-fluid" style="padding-top: 2em;">
+        <h1>Registro del empleado</h1>
+        <div  class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+                <label for="name" class="">
+                    <h1>Primer nombre</h1>
+                </label>
+                <input 
+                    placeholder="Introduzca su nombre" 
+                    style="border-radius: 15px; margin-left: 1em;" 
+                    type="text"
+                    formControlName="firstName"
+                >
+            </div>
+            <div class="col-md-5">
+                <label for="name" class="">
+                    <h1>Segundo nombre</h1>
+                </label>
+                <input 
+                    placeholder="Introduzca su nombre" 
+                    style="border-radius: 15px; margin-left: 1em;" 
+                    type="text"
+                    formControlName="secondName"
+                >
+            </div>
+        </div>
+        <div  class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+                <label for="name" class="">
+                    <h1>Primer apellido</h1>
+                </label>
+                <input 
+                    placeholder="Introduzca su nombre" 
+                    style="border-radius: 15px; margin-left: 1em;" 
+                    type="text"
+                    formControlName="firstLastname"
+                >
+            </div>
+            <div class="col-md-5">
+                <label for="name" class="">
+                    <h1>Segundo apellido</h1>
+                </label>
+                <input 
+                    placeholder="Introduzca su nombre" 
+                    style="border-radius: 15px; margin-left: 1em;" 
+                    type="text"
+                    formControlName="secondLastName"
+                >
+            </div>
+        </div>
+        <div  class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+                <label for="name" class="">
+                    <h1>Posición</h1>
+                </label>
+                <input 
+                    placeholder="Introduzca su nombre" 
+                    style="border-radius: 15px; margin-left: 1em;" 
+                    type="text"
+                    formControlName="position"
+                >
+            </div>
+            <div class="col-md-5">
+                <label for="name" class="">
+                    <h1>Departamento</h1>
+                </label>
+                <input 
+                    placeholder="Introduzca su nombre"
+                    style="border-radius: 15px; margin-left: 1em;"
+                    type="text"
+                    formControlName="deparment"
+                >
+            </div>
+        </div>
+        <div align="center" >
+            <button 
+                type="submit"
+                style="
+                    border-radius: 15px;
+                    margin: 1em;"
+            >
+                enviar
+            </button>
+        </div>
+        <h2 *ngIf="showMessageFlag==1">Empleado creado exitosamente</h2>
+    </div>    
+</form>

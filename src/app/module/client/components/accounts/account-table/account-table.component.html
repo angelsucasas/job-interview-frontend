@@ -1,0 +1,17 @@
+<div align="center" class="row" *ngIf="accounts" style="overflow-y: scroll; height: 60vh;letter-spacing:3px">    
+    <table style="width:100%;height:100%;border: 1px solid rgb(230, 176, 30);border-radius: 5px;">
+        <tr style="background-color: rgb(230, 176, 30);color:white;">
+            <th>Número del producto</th>
+            <th>Monto actual</th>
+            <th>Nombre del dueño</th>
+            <th>Id del dueño</th>                      
+        </tr>
+
+        <tr *ngFor="let account of accounts" style="border-bottom: 1px solid rgb(230, 176, 30);">            
+            <td>{{account.productnumber}}</td>
+            <td>{{account.currentamount}}</td>
+            <td>{{account.firstname}} {{account.firstlastname}}</td>
+            <td>{{account.employeeid}}</td>
+        </tr>
+    </table>    
+</div>
